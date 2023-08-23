@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relógio</title>
+<style>
+  body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: lightsteelblue;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+
+  }
+  #clock {
+    font-size: 4rem;
+    margin: 3rem;
+  }
+</style>
+</head>
+<body>
+<div id="clock"></div>
+<script>
+function updateClock() {
+  const now = new Date();
+  const days = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+  const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+  const day = days[now.getDay()];
+  const month = months[now.getMonth()];
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  const clockDiv = document.getElementById('clock');
+  clockDiv.textContent = `${day}, ${month} ${now.getDate()}, ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+  setTimeout(updateClock, 1000);
+}
+
+updateClock();
+</script>
+</body>
+</html>
